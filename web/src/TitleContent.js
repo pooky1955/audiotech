@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import classIcon from './images/classIcon.png';
+import classIcon from './images/work_at_home.png';
 import background from './images/background.png';
 import { Link } from 'react-router-dom';
 import {BACKEND} from "./Configuration"
@@ -86,18 +86,20 @@ export function TitleContent({handleSubmit}) {
 
                 <div className={classes.content}>
                     <div><img src={classIcon} alt="class icon" className={classes.image} /></div>
-                    <div className={classes.title}>ATTENTION TESTER</div>
-                    <div className={classes.text}>Attention Tester is designed to provide teachers live feedback on their students’ attention. It uses state-of-the-art webcam-based eye tracking and gaze data to detect inattention or loss of focus. This live feedback will help teachers adjust the pace of their lecture and offer them some peace of mind. 
-</div>
+                    <div className={classes.title}>Audio Refiner</div>
+                    <div className={classes.text}>
+                        Audio refiner is disigned to optimize the distorted human voice due to poor signal.
+                         It increases the resolution of the audio and provides caption to help people understand distorted voice.
+                    </div>
 
                     <form onSubmit={handleSubmit} className={classes.file}>
-                        <div className={classes.selectFile}>Select file</div>
+                        <div className={classes.selectFile}>Select Audio</div>
                         <div>
                             <input type="file" className={classes.browse} name="video" id="video" autocomplete="off" required></input>
                         </div>
                         {/* <Link to="/result" exact="true" style={{textDecoration: "none"}}> */}
                             <div style={{marginTop : "1rem"}}>
-                                <input className={classes.submit} type="submit" value="SUBMIT VIDEO" onHover={() => handleClick()}></input>
+                                <input className={classes.submit} type="submit" value="SUBMIT AUDIO" onHover={() => handleClick()}></input>
                             </div>
                         {/* </Link> */}
                     </form>
