@@ -3,7 +3,7 @@ import os
 import urllib.request
 from flask import Flask, request
 from werkzeug.utils import secure_filename
-from util import extract_attention_video, INTERVAL
+from util import polish_audio, INTERVAL
 import json
 from flask_cors import CORS
 import time
@@ -37,13 +37,15 @@ def upload_file():
             filename = secure_filename(video.filename)
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             video.save(filepath)
-            attention_nums = extract_attention_video(filepath)
-            if attention_nums is None:
-                return error("An error occured while playing the video")
-            else:
-                end = time.time()
-                print(f"Took {end - start}")
-                return json.dumps(dict(numbers=attention_nums,interval=INTERVAL,average=np.mean(attention_nums)))
+            # attention_nums = extract_attention_video(filepath)
+            result = polish_audio(filepath)
+            return "Hello World!"
+            # if attention_nums is None:
+                # return error("An error occured while playing the video")
+            # else:
+                # end = time.time()
+                # print(f"Took {end - start}")
+                # return json.dumps(dict(numbers=attention_nums,interval=INTERVAL,average=np.mean(attention_nums)))
 
         else:
 
