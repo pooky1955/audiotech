@@ -70,8 +70,8 @@ const useStyle = makeStyles({
         fontFamily: "Raleway",
         fontWeight: "bold",
         color: "#FFFFFF",
+        cursor: "pointer"
     }
-
 })
 
 const handleClick = () => {
